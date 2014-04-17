@@ -124,7 +124,8 @@ fancy_echo "Upgrading and linking OpenSSL ..."
 ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
 
 fancy_echo "Installing Ruby $ruby_version ..."
-  rbenv install "$ruby_version"
+  curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | rbenv install --patch 2.1.1
+  # rbenv install "$ruby_version"
 
 fancy_echo "Setting $ruby_version as global default Ruby ..."
   rbenv global "$ruby_version"
@@ -171,4 +172,3 @@ fancy_echo "Installing your personal additions from ~/.laptop.local ..."
     source ~/.laptop.local
   fi
 ### end common-components/personal-additions
-
